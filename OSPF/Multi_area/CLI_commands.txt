@@ -1,0 +1,120 @@
+Multi area OSPF
+
+Router-0 
+en
+config te
+int fa 0/0
+ip add 192.168.41.1 255.255.255.0
+no shut 
+ex
+int se 0/0/0
+ip add 172.16.10.1 255.255.0.0
+no shut 
+ex
+ex
+ex
+
+en
+config te
+route ospf 1
+network 192.168.41.0 0.0.0.255 area 1
+network 172.16.10.1 0.0.255.255 area 1
+ex
+ex
+write
+
+
+Router - 1
+en
+config te
+int se 0/0/0
+ip add 172.16.10.2 255.255.0.0
+no shut 
+ex
+int se 0/0/1
+ip add 172.17.10.1 255.255.0.0
+no shut 
+ex
+ex
+ex
+
+en
+config te
+route ospf 2
+network 172.16.0.0 0.0.255.255 area 1
+network 172.17.0.0 0.0.255.255 area 0
+ex
+ex
+write
+
+
+Router-2
+en
+config te
+int se 0/0/0
+ip add 172.17.10.2 255.255.0.0
+no shut 
+ex
+int se 0/0/1
+ip add 172.18.10.1 255.255.0.0
+no shut 
+ex
+ex
+ex
+
+en
+config te
+route ospf 3
+network 172.17.0.0 0.0.255.255 area 0
+network 172.18.0.0 0.0.255.255 area 0
+ex
+ex
+write 
+
+Router - 3 
+en
+config te
+int se 0/0/0
+ip add 172.18.10.2 255.255.0.0 
+no shut 
+ex
+int se 0/0/1
+ip add 172.19.10.1 255.255.0.0
+no shut 
+ex
+ex
+ex
+
+en
+config te
+route ospf 4
+network 172.18.0.0 0.0.255.255 area 0
+network 172.19.0.0 0.0.255.255 area 2
+ex
+ex
+write
+
+Router-4
+
+en
+config te
+int fa 0/0
+ip add 192.168.35.0 255.255.255.0
+no shut 
+ex
+int se 0/0/0
+ip add 172.19.10.2 255.255.0.0 
+no shut 
+ex
+ex
+ex
+
+en
+config te
+route ospf 5
+network 192.168.35.0 0.0.0.255 area 2
+network 172.19.0.0 0.0.255.255 area 2
+ex
+ex
+
+write

@@ -1,0 +1,52 @@
+﻿Standard ACL 
+
+
+
+
+Router 0
+        en
+config te
+int gig 0/0/0
+ip add 192.168.10.1 255.255.255.0
+no shut
+int gig 0/0/1
+ip add 192.168.30.1 255.255.255.0
+no shut
+ex
+ex
+ex
+en
+config te
+router rip
+network 192.168.10.0
+network 192.168.30.0
+no shut 
+
+
+Router 1
+        no
+en
+config te
+int gig 0/0/0
+ip add 192.168.20.1 255.255.255.0
+no shut
+int gig 0/0/1
+ip add 192.168.30.2
+no shut
+ex
+ex
+ex
+en
+config te
+router rip
+network 192.168.20.0
+network 192.168.30.0
+no shut
+en
+config te
+ip access-list stand 10
+permit 192.168.10.2 0.0.0.0
+permit 192.168.10.4 0.0.0.0
+deny 192.168.10.2. 0.0.0.0
+int gig 0/0/0
+ip access-group 10 out

@@ -1,0 +1,10 @@
+VoIP Switch configuration
+
+en
+config te
+int range fa 0/1-5
+switchport mode access
+switchport voice vlan 1
+ex
+ex
+ex

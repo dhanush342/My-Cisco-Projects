@@ -1,0 +1,47 @@
+Router CLI command
+! basic router config 
+en
+config te
+int fa 0/0
+ip add 192.168.50.1 255.255.255.0
+no shut 
+ex
+ex
+ex
+
+en
+config te
+ip dhcp pool lan1
+network 192.168.50.0 255.255.255.0
+default-router 192.168.50.1
+ex
+ex
+ex
+
+!ssh command
+en
+config te
+hostname siva
+enable secret <ENCRYPTED_PASSWORD>
+username Admin secret <ENCRYPTED_PASSWORD>
+int fa 0/0
+ip add 192.168.50.1 255.255.255.0
+no shut
+ex
+!ip domain 
+ip domain-name sivadhcpssh.com
+crypto generated key rsa
+2048 
+ip ssh version 2
+line vty 0 15
+transport input ssh
+login local 
+^z
+siva#write
+siva#show running-config
+siva#show ip interface brief
+siva#show show ssh
+siva#config te
+siva#service password-encryption
+siva#end
+siva#write mem

@@ -1,0 +1,41 @@
+﻿Router Information Protocol (RIP)-CLI 
+
+
+Router 0-
+        no
+en
+config te
+int gig 0/0/0
+ip add 192.168.250.1 255.255.255.0
+no shut
+int gig 0/0/1
+ip add 192.168.50.1 255.255.255.0
+no shut
+ex
+ex
+ex
+en
+config te
+router rip
+network 192.168.250.0
+network 192.168.50.0
+
+
+Router 1-
+        no
+en
+config te
+int gig 0/0/0
+ip add 25.0.0.1 255.0.0.0
+no shut
+iint gig 0/0/1
+ip add 192.168.50.2 255.255.255.0
+no shut
+ex
+ex
+ex
+en
+config te
+router rip
+network 25.0.0.0
+network 192.168.250.0

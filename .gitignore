@@ -1,0 +1,18 @@
+# Operating System Files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor / IDE Files
+.vscode/
+.idea/
+*.swp
+*~

@@ -1,0 +1,64 @@
+BGP 3 Routers
+	Router 0
+		en
+		config te
+		int gig 0/0
+		ip add 192.168.10.1 255.255.255.0
+		no shut 
+		ex
+		int gig 0/1
+		ip add 192.168.1.1 255.255.255.0
+		no shut 
+		ex
+		ex
+		ex
+		en
+		config te
+		route bgp 1
+		negihbor 192.168.1.2 remote-as 2
+		network 192.168.10.0 mask 255.255.255.0
+		
+	Router 1
+		en
+		config te
+		int gig 0/0
+		ip add 192.168.20.1 255.255.255.0
+		no shut 
+		ex
+		int gig 0/1
+		ip add 192.168.1.2 255.255.255.0
+		no shut 
+		ex
+		int gig 0/2
+		ip add 192.168.2.1 255.255.255.0
+		no shut 
+		ex
+		ex
+		ex
+		en
+		config te
+		route bgp 2
+		neighbor 192.168.1.1 remote-as 1
+		neighbor 192.168.2.2 remote-as 3
+		neighbor 192.168.2.2 next-hop-self
+		network 192.168.20.0 mask 255.255.255.0
+		
+	Router 2
+		en
+		config te
+		int gig 0/0
+		ip add 192.168.30.1 255.255.255.0
+		no shut 
+		ex
+		int gig 0/1
+		ip add 192.168.2.2 255.255.255.0
+		no shut 
+		ex
+		ex
+		ex
+		en 
+		config te
+		route bgp 3
+		neighbor 192.168.2.1 remote-as 2
+		network 192.168.30.0 mask 255.255.255.0
+		

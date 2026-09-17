@@ -1,0 +1,63 @@
+en
+config te
+int fa 0/0
+ip add 192.168.25.1 255.255.255.0
+no shut 
+ex
+
+!DHCP
+ip dhcp pool lan 1
+network 192.168.25.0 255.255.255.0
+default-router 192.168.25.1 
+option 150 ip 192.168.25.1 
+ex
+ex
+ex
+
+!VoIP 
+telephony-service
+max-dn 6
+max-ephone 6
+ip source-address 192.168.25.1 port 2000
+auto assign 1 to 6
+ex
+ex
+ex
+
+!number registration
+en
+config te
+ephone-dn 1
+number 2589456 
+ex
+
+ephone-dn 2
+number 2589456
+ex
+
+ephone-dn 3
+number 2589789
+ex
+ex
+ex
+write
+
+!SSH 
+en 
+config te
+hostname siva
+secret siva123
+username Admin secret admin123
+ip domain-name sivavoipssh.com
+crypto generate key rsa
+2048
+ip ssh version 2
+line vty 0 15
+transport input ssh
+login local 
+exit
+service password-encryption 
+end
+
+
+

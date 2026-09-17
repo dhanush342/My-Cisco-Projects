@@ -1,0 +1,9 @@
+en
+config te
+int fa 0/1-3
+switchport mode access
+switchport voice vlan 1
+ex
+ex
+ex
+

@@ -1,0 +1,17 @@
+Router-CLI-Command 
+en
+config te
+int gig 0/0
+ip add 192.168.170.25 255.255.255.0
+no shut 
+
+**Enabling DHCP for assigning IP Automatically**
+en
+config te
+ip dhcp pool lan1
+network 192.168.170.26 255.255.255.0 ---> (Server's IP address)
+default-router 192.168.170.25
+ex
+ex
+
+Route#write

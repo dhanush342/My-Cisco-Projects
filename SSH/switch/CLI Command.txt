@@ -1,0 +1,19 @@
+en
+config te
+hostname siva
+secret <encrypted_password>
+username siva secret <encrypted_password>
+int vlan1
+ip add 192.168.25.1 255.255.255.0
+no shut 
+
+ex
+ip domain name sivassh.com
+crypto key generate
+how many bits in modulus [512]: 2048
+ip ssh version 2
+line vty 0 15
+transport input ssh
+login local
+^z
+siva#write

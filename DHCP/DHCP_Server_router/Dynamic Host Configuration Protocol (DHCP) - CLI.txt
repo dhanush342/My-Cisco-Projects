@@ -1,0 +1,15 @@
+﻿Dynamic Host Configuration Protocol (DHCP) - CLI 
+
+
+DHCP with Router 
+        Router CLI command
+no
+en
+config te
+int gig 0/0/0
+ip add 192.168.50.1 255.255.255.0
+no shut
+ex
+ip dhcp pool lan1
+network 192.168.50.0 255.255.255.0
+default-router 192.168.50.1

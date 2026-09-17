@@ -1,0 +1,8 @@
+﻿LAN Single CLI Command
+
+no
+en
+config te
+int gig 0/0/0
+ip add 172.16.10.1
+no shut

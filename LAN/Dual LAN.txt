@@ -1,0 +1,13 @@
+﻿Dual LAN
+
+
+CLI
+no
+en
+config te
+int gig 0/0/0
+ip add 192.168.10.1 255.255.255.0
+no shut
+int gig 0/0/1
+ip add 10.0.0.10 255.0.0.0
+no shut

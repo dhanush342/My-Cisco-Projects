@@ -1,0 +1,40 @@
+﻿Static - Information Protocol 
+
+
+Router 0
+
+
+no
+en
+config te
+int gig 0/0/0
+ip add 165.10.20.1 255.255.0.0
+no shut
+int gig 0/0/1
+ip add 165.15.10.1 255.255.0.0
+no shut
+ex
+ex
+ex
+en
+config te
+ip route 165.25.0.0 255.255.0.0 165.15.10.2
+
+
+Router 1
+        
+        no
+en
+config te
+int gig 0/0/0
+ip add 165.25.10.1 255.255.0.0
+no shut
+int gig 0/0/1
+ip add 165.15.10.2 255.255.0.0
+no shut
+ex
+ex
+ex
+en
+config te
+ip route 165.10.0.0 255.255.0.0 165.15.10.1

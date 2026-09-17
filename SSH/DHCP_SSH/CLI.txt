@@ -1,0 +1,30 @@
+en
+config te
+int gig 0/0/0
+ip add 192.168.149.1 255.255.255.0
+no shut 
+ex
+
+ip dhcp pool LAN-1
+network 192.168.149.0 255.255.255.0
+default-router 192.168.149.1
+
+
+SSH
+en 
+config te
+hostname ADMIN
+secret <ENCRYPTED_PASSWORD>
+ip domain-name dhcpssh.com
+hostname ADMIN secret <ENCRYPTED_PASSWORD>
+crypto key generate rsa
+2048
+ip ssh version 2
+line vty 0 15
+transport input ssh
+login local 
+exit 
+service password-encryption
+end 
+
+write

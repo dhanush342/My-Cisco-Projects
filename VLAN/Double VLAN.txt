@@ -1,0 +1,26 @@
+﻿Double VLAN 
+
+
+switch>en
+config te
+int fa 0/1
+switchport mode access
+switchport access vlan 2
+int fa 0/2
+switchport mode access
+switchport access vlan 2
+int fa 0/3
+switchport mode access
+switchport access vlan 3
+int fa 0/4
+switchport mode access
+switchport access vlan 3
+int fa 0/5
+switchport mode access
+switchport access vlan 4
+int fa 0/6
+switchport mode access
+switchport access vlan 4
+int fa 0/7
+switchport mode access
+switchport mode trunk
