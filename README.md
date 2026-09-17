@@ -3,7 +3,7 @@
 [![Cisco Packet Tracer](https://img.shields.io/badge/Cisco%20Packet%20Tracer-v8.0%2B-049cdb?style=for-the-badge&logo=cisco&logoColor=white)](https://www.netacad.com/courses/packet-tracer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 [![Networking](https://img.shields.io/badge/Focus-CCNA%20%7C%20CCNP%20Architecture-1f8b4c?style=for-the-badge&logo=wireguard&logoColor=white)](https://github.com/dhanush342/My-Cisco-Projects)
-[![Status](https://img.shields.io/badge/Labs-11%20Modules%20Completed-blueviolet?style=for-the-badge)](https://github.com/dhanush342/My-Cisco-Projects)
+[![Status](https://img.shields.io/badge/Labs-11%20Modules%20%2B%201%20Team%20Capstone-blueviolet?style=for-the-badge)](https://github.com/dhanush342/My-Cisco-Projects)
 
 A comprehensive, production-grade collection of computer networking architectures, protocols, security controls, and telephony implementations designed and simulated using **Cisco Packet Tracer**. 
 
@@ -15,6 +15,7 @@ This repository archives hands-on laboratory experiments, real-world topology de
 
 - [Overview & Key Competencies](#-overview--key-competencies)
 - [Repository Architecture & Lab Index](#-repository-architecture--lab-index)
+- [🌟 Featured Capstone: Small-Scale Enterprise Office Network](#-featured-capstone-project-small-scale-enterprise-office-network)
 - [Detailed Module Breakdowns](#-detailed-module-breakdowns)
   - [1. Access Control Lists (ACL)](#1-access-control-lists-acl)
   - [2. Border Gateway Protocol (BGP)](#2-border-gateway-protocol-bgp)
@@ -62,6 +63,26 @@ The projects in this repository span fundamental Layer 2 switching to advanced L
 | **09** | [Static_IP](./Static_IP) | Network Foundations | Class B Static Addressing (172.16.x.x), Gateway Routing | `Static_IP_class_B.pkt` | `Static - Information Protocol.txt` | Departmental ping verification |
 | **10** | [VLAN](./VLAN) | Layer 2 Segmentation | 802.1Q Trunking, Access Ports, Inter-Switch VLANs (HR, Sales, Mktg) | `VLAN_single_Dual.pkt` | `Single_VLAN.txt`, `Double VLAN.txt` | Departmental broadcast isolation & trunk tests |
 | **11** | [VoIP](./VoIP) | Converged Telephony | Cisco CME, Ephone-DN, DHCP Option 150, Voice VLAN, Daisy-chaining | `VoIP_dhcp_telephony.pkt`, `VoIP_with_pc.pkt` | `Router_CLI.txt`, `switch_CLI_config .txt`, `CLI_router.txt` | Active call connection, dial tone, phone displays |
+| **🌟 Capstone** | [final work](./final%20work) | Enterprise Branch Design | Dual-Router WAN, 4 Departments (IT, Computer, Chairman, Server Room), Static Routing | `SmallOfficeNetwork.pkt` | `Readme.txt` | Multi-department cross-WAN ping verification |
+
+---
+
+## 🌟 Featured Capstone Project: Small-Scale Enterprise Office Network
+Directory: [`./final work`](./final%20work)
+
+Completed collaboratively with my university capstone team, this comprehensive project integrates four departmental subnets and a dedicated server room interconnected across two enterprise routers over a Serial WAN link:
+
+- **Enterprise Departments & Addressing**:
+  - **Computer Department (`192.168.3.0/24`)**: 3 Employee PCs, Manager PC, Department Printer connected to `Router-PT Main` via `Fa1/0` (`192.168.3.1`).
+  - **Server Room (`1.0.0.0/8`)**: Central Enterprise Server (`1.0.0.2`) & Admin Laptop (`1.0.0.3`) connected to `Router-PT Main` via `Fa0/0` (`1.0.0.1`).
+  - **IT Department (`192.168.2.0/24`)**: 2 Employee PCs, Manager PC, IT Network Printer connected to `Router-PT Router-1` via `Fa1/0` (`192.168.2.1`).
+  - **Chairman Room / Executive Suite (`192.168.1.0/24`)**: Chairman PC (`192.168.1.2`) & Vice Chairman (VC) PC (`192.168.1.3`) connected to `Router-PT Router-1` via `Fa0/0` (`192.168.1.1`).
+  - **WAN Serial Interconnect (`10.0.0.0/8`)**: Point-to-point serial DCE/DTE link between `Router-PT Main` (`10.0.0.1`) and `Router-PT Router-1` (`10.0.0.2`).
+- **Static Routing Protocol**: Complete bi-directional static routes (`ip route`) configured on both routers ensuring seamless cross-departmental reachability and access to the enterprise server.
+
+| Capstone Team Topology — Small-Scale Enterprise Office Network |
+|:---:|
+| ![Small Office Network Topology](final%20work/final%20output.png) |
 
 ---
 
